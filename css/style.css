@@ -1,0 +1,52 @@
+@keyframes logo {
+    from {
+        width: 25px;
+        opacity: 0;
+    }
+    to {
+        width: 475px;
+        opacity: 1  ;
+    }
+}
+
+.pricing {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.card {
+    flex-basis: 450px;
+}
+
+
+@media screen and (min-width: 900px) {
+    /* step 11 */
+    header{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+    }
+
+    .nav_links{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    /* step 12 */
+    .card {
+        flex-basis: 275px;
+    }
+
+    .pricing {
+        align-items: center;
+    }
+}
+
+@media all and (prefers-reduced-motion) {
+
+}
+
+@media print {
+
+}
