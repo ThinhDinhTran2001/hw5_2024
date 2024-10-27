@@ -1,3 +1,9 @@
+/* step 1 - setting the duration and keyframe for the logo */
+#logo {
+    animation-duration: 5s;
+    animation-name: logo;
+}
+
 @keyframes logo {
     from {
         width: 25px;
@@ -9,19 +15,72 @@
     }
 }
 
+/* step 2 - fonts and background*/
+body {
+    font-family: 'Poppins', 'serif';
+    background-image: url(../images/concrete_seamless.png) ;
+    background-color: #f1f1f1;
+}
+
+/* step 3 flex set up for top header*/
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* step 4 - flex setup for nav links*/
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+
+/* step 5 - no color for visited links*/
+li a:visited {
+    color: #0000ff;
+}
+    
+/* step 6 - styling the cards */
+.card > header {
+    background-color:#288088;
+    border: solid 2px #45ADAD;
+    padding: 20px 0 20px 0;
+    border-radius: 50px 50px 0 0 ;
+}
+
+.card {
+    border-radius: 50px 50px 0 0 ;
+}
+
+/* step 7 & 8 flex setup for pricing and cards*/
+.card {
+    flex-basis: 450px;
+}
+
 .pricing {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
 }
 
-.card {
-    flex-basis: 450px;
+/* step 9 - styling gallery images */
+.gallery img {
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
 }
 
+/* step 10 - flex setup for gallery */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    flex-direction: row;
+}
 
-@media screen and (min-width: 900px) {
-    /* step 11 */
+@media screen and (min-width: 900px) { 
+    /* step 11 - logo on the far left and nav links on the far right*/
     header{
         display: flex;
         flex-flow: row nowrap;
@@ -33,7 +92,7 @@
         flex-direction: row;
     }
     
-    /* step 12 */
+    /* step 12 - cards and pricing for 900px view*/
     .card {
         flex-basis: 275px;
     }
@@ -41,12 +100,66 @@
     .pricing {
         align-items: center;
     }
+
+    /* step 13 - sticky top header */
+    body > header {
+        position: sticky;
+        top: 0;
+    }
 }
 
 @media all and (prefers-reduced-motion) {
-
+    #logo {
+        /* step 14 - no logo animation */
+        animation: none;
+    }
 }
 
 @media print {
+    body {
+        /* step 15 - changing fonts */
+        font-family: 'Arial', 'Helvetica';
 
+        /* step 16 - removing the background image */
+        background-image: none;
+    }
+
+    /* step 17 */
+    .nav {
+        display: flex;
+    }
+
+    .nav_links {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    header {
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: normal;
+    }
+
+
+    /* step 18 - align the pricing class along the bottom*/
+    .pricing {
+        flex-wrap: nowrap;
+        align-items: flex-end;
+    }
+    
+    /* step 19 - styling the cards */
+    .card {
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+    }
+
+    /* step 20 - hide the gallery */
+    #gallery, .gallery {
+        display: none;
+    }
+
+    /* step 21 - emoji */
+    .card li:nth-child(2)::after {
+        content: "👍";
+    }
 }
